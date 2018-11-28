@@ -11,11 +11,15 @@ namespace MVCCourseApplication.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Course
     {
         public int CourseId { get; set; }
+        [Display(Name = "CourseName")]
+        [Required, MaxLength(40, ErrorMessage = "Value should not exceed 40 characters")]
         public string CourseName { get; set; }
+        
         public Nullable<int> Duration { get; set; }
         public string Remarks { get; set; }
     }

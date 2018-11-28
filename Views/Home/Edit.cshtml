@@ -1,0 +1,27 @@
+﻿@model MVCCourseApplication.Models.Course
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.CourseId)
+
+    <div>
+        @Html.DisplayNameFor(model => model.CourseName)
+        @Html.TextBox("CourseName")
+    </div>
+
+    <div>
+        @Html.DisplayNameFor(model => model.Duration)
+        @Html.TextBox("Duration")
+    </div>
+
+    <div>
+        @Html.DisplayNameFor(model => model.Remarks)
+        @Html.TextBox("Remarks")
+    </div>
+    <input type="Submit" value="Update" />
+}

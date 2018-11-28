@@ -21,9 +21,14 @@ namespace MVCCourseApplication.Controllers
         [HttpPost]
         public ActionResult Create(Course c)
         {
-            ctx.Courses.Add(c);
-            ctx.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+
+                ctx.Courses.Add(c);
+                ctx.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(c);
         }
         public ActionResult Detail(int? id)
         {
@@ -41,6 +46,22 @@ namespace MVCCourseApplication.Controllers
         {
             var c = ctx.Courses.Find(id);
             ctx.Courses.Remove(c);
+            ctx.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public ActionResult Edit(int? id)
+        {
+            var c = ctx.Courses.Find(id);
+            return View(c);
+        }
+        [HttpPost]
+
+        public ActionResult Edit(Course co)
+        {
+            var c = ctx.Courses.Find(co.CourseId);
+            c.CourseName = co.CourseName;
+            c.Duration = co.Duration;
+            c.Remarks = co.Remarks;
             ctx.SaveChanges();
             return RedirectToAction("Index");
         }
