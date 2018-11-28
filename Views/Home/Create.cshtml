@@ -1,0 +1,24 @@
+﻿@model MVCCourseApplication.Models.Course
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.DisplayNameFor(model => model.CourseName)
+        @Html.TextBox("CourseName")
+    </div>
+
+    <div>
+        @Html.DisplayNameFor(model => model.Duration)
+        @Html.TextBox("Duration")
+    </div>
+    <div >
+        @Html.DisplayNameFor(model => model.Remarks)
+        @Html.TextBox("Remarks")
+    </div>
+    <input type="submit" value="Save" />
+}
+

@@ -1,0 +1,27 @@
+﻿@model IEnumerable<MVCCourseApplication.Models.Course>
+@{
+    ViewBag.Title = "Home Page";
+}
+<div>
+    @Html.ActionLink("Create New","create","Home")
+</div>
+<table class="table">
+    <tr>
+        <th>Course Name</th>
+        <th>Duration</th>
+        <th>Remarks</th>
+        <th>View Details</th>
+        <th>Remove Details</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+    <tr>
+        <td>@item.CourseName</td>
+        <td>@item.Duration</td>
+        <td>@item.Remarks</td>
+        <td>@Html.ActionLink("Detail", "Detail", new { id = item.CourseId })</td>
+        <td>@Html.ActionLink("Delete", "Delete", new { id = item.CourseId })</td>
+    </tr>
+        }
+
+</table>

@@ -1,0 +1,11 @@
+﻿@model MVCCourseApplication.Models.Course
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h2>Detail</h2>
+<div>
+    @Html.TextBoxFor(Bini => Bini.CourseName)
+    @Html.DisplayFor(Bini => Bini.Duration)
+    @Html.DisplayFor(Bini => Bini.Remarks)
+</div>
